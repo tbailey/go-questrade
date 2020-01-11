@@ -78,7 +78,7 @@ func (c *Client) SymbolById(symbolId int) (*Symbols, error) {
 	return &symbols, nil
 }
 
-func (c *Client) SymbolsById(account Account, symbolIds []int) ([]Symbol, error) {
+func (c *Client) SymbolsById(symbolIds []int) ([]Symbol, error) {
 	parameters := url.Values{}
 	parameters.Add("ids", strings.Trim(strings.Join(strings.Fields(fmt.Sprint(symbolIds)), ","), "[]"))
 
@@ -90,7 +90,7 @@ func (c *Client) SymbolsById(account Account, symbolIds []int) ([]Symbol, error)
 	return symbols.Symbols, nil
 }
 
-func (c *Client) SymbolsByName(account Account, symbolNames []string) ([]Symbol, error) {
+func (c *Client) SymbolsByName(symbolNames []string) ([]Symbol, error) {
 	parameters := url.Values{}
 	parameters.Add("ids", strings.Join(symbolNames, ","))
 
