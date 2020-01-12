@@ -36,6 +36,7 @@ type Symbol struct {
 	IsTradable bool
 	IsQuotable bool
 	HasOptions bool
+	Currency string
 	MinTicks []MinTickData
 	IndustrySector string
 	IndustryGroup string
