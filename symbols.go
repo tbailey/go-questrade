@@ -25,7 +25,7 @@ type Symbol struct {
 	OptionType string
 	OptionDurationType string
 	OptionRoot string
-	OptionContractDeliverables []OptionOrderDeliverable
+	OptionContractDeliverables OptionOrderDeliverable
 	OptionExerciseType string
 	ListingExchange string
 	Description string
@@ -36,7 +36,7 @@ type Symbol struct {
 	IsTradable bool
 	IsQuotable bool
 	HasOptions bool
-	MinTicks []MinTick
+	MinTicks []MinTickData
 	IndustrySector string
 	IndustryGroup string
 	IndustrySubGroup string
@@ -46,10 +46,20 @@ type Symbols struct {
 	Symbols []Symbol
 }
 
-type MinTick struct {
+type MinTickData struct {
+	Pivot uint64
+	MintTick uint64
 }
 
 type OptionOrderDeliverable struct {
+	Underlyings []UnderlyingMultiplierPair
+	CashInLieu uint64
+}
+
+type UnderlyingMultiplierPair struct {
+	Multiplier uint64
+	UnderlyingSymbol string
+	UnderlyingSymbolId string
 }
 
 func (c *Client) getSymbols(parameters url.Values) (*Symbols, error) {
