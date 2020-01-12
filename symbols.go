@@ -47,13 +47,13 @@ type Symbols struct {
 }
 
 type MinTickData struct {
-	Pivot uint64
-	MintTick uint64
+	Pivot float64
+	MintTick float64
 }
 
 type OptionOrderDeliverable struct {
 	Underlyings []UnderlyingMultiplierPair
-	CashInLieu uint64
+	CashInLieu float64
 }
 
 type UnderlyingMultiplierPair struct {
