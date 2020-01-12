@@ -92,7 +92,7 @@ func (c *Client) SymbolsById(symbolIds []int) ([]Symbol, error) {
 
 func (c *Client) SymbolsByName(symbolNames []string) ([]Symbol, error) {
 	parameters := url.Values{}
-	parameters.Add("ids", strings.Join(symbolNames, ","))
+	parameters.Add("names", strings.Join(symbolNames, ","))
 
 	symbols, err := c.getSymbols(parameters)
 	if err != nil {
