@@ -20,6 +20,7 @@ type Client struct {
 	Client       *http.Client
 	IsPractice   bool
 	UserAgent    string
+	RefreshToken string
 }
 
 type GeneralError struct {
@@ -57,6 +58,7 @@ func NewClient(refreshToken string, isPractice bool) (*Client, error) {
 		Client:       client,
 		IsPractice:   isPractice,
 		UserAgent:    "",
+		RefreshToken: conf.RefreshToken,
 	}, nil
 }
 
